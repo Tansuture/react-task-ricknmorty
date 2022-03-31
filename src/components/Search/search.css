@@ -1,0 +1,19 @@
+.input{
+    border: 3px solid rgb(0, 227, 212);
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 30%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-image: url('../../space.jpg');
+    color:white;
+
+}
+.input:hover{
+    border: 3px solid greenyellow;
+}
+
+::placeholder{
+    color:white;
+    font-weight: bold;
+}

@@ -1,0 +1,27 @@
+.card-container{
+    border: 2px solid greenyellow;
+    margin-left: 10px;
+    border-radius: 10px;
+   
+
+  }
+  .content {
+    padding: 10px;
+  }
+  .img {
+   width: 50%;
+   
+  }
+ 
+/* .flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+} */
+
+.back{
+  background-image: url('portal.jpg');
+}
+.title{
+  color:blueviolet;
+}
