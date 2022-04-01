@@ -1,3 +1,29 @@
 .filter-container{
+    background-image: url('../../space.jpg');
+    border:2px solid greenyellow;
+    margin-left: 20px;
+}
+.filter-text{
+    color:greenyellow;
+}
+.select-css{
+    margin-bottom: 10px;
+    margin-left:5%;
+}
+.clear{
+    color:white;
+    font-weight: bold;
+}
+select{
+    border-radius: 10px;
     background-image: url('../Cards/portal.jpg');
+    cursor: pointer;
+    padding: 0.75em;
+    max-width:  150px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color:white;
+}
+option{
+    color:black;
 }

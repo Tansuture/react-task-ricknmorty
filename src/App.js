@@ -24,10 +24,12 @@ function App() {
 
 
 if(isError){
-  return <h2 className='error'>{error.message}</h2>
+  return  <Error error={error.message}/>
 }
 
+
   return (
+   
 
     <div className="App">
        <div className=" flex">

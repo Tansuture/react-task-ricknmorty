@@ -17,7 +17,7 @@ const Filter = ({
   <div className="col-lg-2 filter-container">
     <div className=" filter-text text-center fw-bold fs-4 mb-2">Filters</div>
     <div onClick={clear}
-      className="text-primary text-decoration-underline text-center mb-3"
+      className="clear text-center mb-3"
     > Clear Filters </div>
     <div className="accordion" id="accordionExample">
     <ByStatus  setStatus={setStatus}status={status}/>
