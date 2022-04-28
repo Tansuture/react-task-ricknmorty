@@ -5,8 +5,10 @@ import Modal from '@mui/material/Modal';
 import { useCallback } from "react";
 import { closeModal } from "../../store/actions";
 import TextField from '@mui/material/TextField';
-import { Button, MenuItem } from "@mui/material";
+import { Button} from "@mui/material";
 import Select from 'react-select'
+import { RootState } from "../../store/store"
+import React from 'react'
 
 import { Controller, useForm } from "react-hook-form";
 
@@ -29,19 +31,20 @@ export default function BasicModal() {
 
     const {register,handleSubmit,formState:{errors},control,reset}= useForm()
     
-  const open = useSelector(state=>state.shopReducer.modal)
-  const dispatch = useDispatch()
+  const open = useSelector((state:RootState)=>state.shopReducer.modal)
+
 
     const handleClose = useCallback(()=>{
-        dispatch(closeModal())
-    },[dispatch])
+     closeModal()
+    },[closeModal])
 
-    const onSubmit =useCallback((data)=>{
+    const onSubmit =useCallback(()=>{
  
-        dispatch(handleClose())
+       handleClose()
         reset()
-    },[dispatch,reset])
-    const handleError = (errors)=>{
+    },[handleClose,reset])
+
+    const handleError = (errors:any)=>{
         console.error(errors)
     }
     const registerOptions = {
@@ -109,7 +112,7 @@ export default function BasicModal() {
             control={control}
             rules={registerOptions.role}
             render={({ field }) => (
-              <Select options={selectOptions} {...field} label="Text field" />
+              <Select options={selectOptions} {...field}  />
             )}
             ></Controller>
                 <small className="text-danger">

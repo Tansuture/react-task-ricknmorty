@@ -3,6 +3,7 @@ import {  useEffect } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 import { addToBasket, getProducts,deleteFromBasket } from "../../store/actions"
+import { RootState } from "../../store/store"
 
 import Basket2 from "./Basket2"
 import BasicModal from "./Modal"
@@ -13,23 +14,25 @@ import ShopInfo from "./Shop.info"
 
 const Shop =()=>{
     const dispatch = useDispatch()
+    const products = useSelector((state:RootState)=>state.shopReducer.shop)
+    console.log(products)
 
-    const products = useSelector((state)=>{
-     return state.shopReducer.shop
-    })
+    // const products = useSelector((state)=>{
+    //  return state.shopReducer.shop
+    // })
    
     
     useEffect(()=>{
-      dispatch(getProducts(products))
-    },[dispatch])
+      getProducts()
+    },[getProducts])
     
     const handleBasket = (product,id)=>{
-      dispatch(addToBasket(product,id))
+      addToBasket(id)
     }
     const handleDelete= (id)=>{
-      dispatch(deleteFromBasket(id))
+      deleteFromBasket(id)
     }
-    console.log(products)
+
     return(
         <>
         <Container>

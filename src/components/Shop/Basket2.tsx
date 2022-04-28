@@ -5,17 +5,23 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import './index.css'
 import { useDispatch, useSelector } from "react-redux"
-import { clearTheBasket, incrementCount, openModal } from "../../store/actions";   
+import { clearTheBasket, openModal } from "../../store/actions";   
 import 'react-modern-drawer/dist/index.css'
 import { grey } from '@mui/material/colors';
+import { FC } from 'react';
+import { RootState } from "../../store/store"
+import { BasketData } from '../../store/types';
 
 
-const Basket2=({deleteFromBasket})=>{
+type Props = {
+    deleteFromBasket:(id:number)=>void
+}
+const Basket2:FC<Props>=({deleteFromBasket})=>{
     const [isClear,setClear]=React.useState(false)
     const [isOpen, setIsOpen] = React.useState(false)
 
     const HandleModal  =()=>{
-        dispatch(openModal())
+        openModal()
 
     }
     const toggleDrawer = () => {
@@ -23,17 +29,17 @@ const Basket2=({deleteFromBasket})=>{
     }
     const dispatch = useDispatch()
 
-  const basket = useSelector((state)=>{
+  const basket = useSelector((state:RootState)=>{
        return state.shopReducer.basket
    })
 
-   const counter = useSelector(state=>state.shopReducer.counter)
-   let total = basket.reduce((acc,item)=>acc+=item.price,0)
-   console.log(total)
+   const counter = useSelector((state:RootState)=>state.shopReducer.counter
+   const total = basket.reduce((acc,item)=>acc+=item.price,0)
+  
    
    const clearAll = ()=>{
     localStorage.removeItem('basket')
-   dispatch(clearTheBasket())
+  clearTheBasket()
    setClear(true)
 
    }
