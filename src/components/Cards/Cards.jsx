@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useQuery } from "react-query"
-import { getData } from "../../data"
+
 import './cards.css'
 import { getStatus } from './getStatus';
 
