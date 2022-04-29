@@ -1,41 +1,46 @@
 import { Container, Grid } from "@mui/material"
-import {  useEffect } from "react"
+import {  FC, useEffect } from "react"
+import React from 'react'
+
 
 import { useDispatch, useSelector } from "react-redux"
 import { addToBasket, getProducts,deleteFromBasket } from "../../store/actions"
 import { RootState } from "../../store/store"
 
-import Basket2 from "./Basket2"
+// import Basket2 from "./Basket2"
 import BasicModal from "./Modal"
 import ShopInfo from "./Shop.info"
+import { useUserActions } from "./UseUsersActon"
 
 
 
 
-const Shop =()=>{
+const Shop:FC =()=>{
     const dispatch = useDispatch()
     const products = useSelector((state:RootState)=>state.shopReducer.shop)
-    console.log(products)
+    const {getProducts}=useUserActions()
+  
 
     // const products = useSelector((state)=>{
     //  return state.shopReducer.shop
     // })
-   
+  
     
     useEffect(()=>{
-      getProducts()
+    getProducts()
     },[getProducts])
     
-    const handleBasket = (product,id)=>{
+    const handleBasket = (id:number)=>{
       addToBasket(id)
     }
-    const handleDelete= (id)=>{
+    const handleDelete= (id:number)=>{
       deleteFromBasket(id)
     }
 
     return(
         <>
         <Container>
+         
           <Grid container spacing={2}>
 
         {products.map((product)=>(
@@ -44,7 +49,7 @@ const Shop =()=>{
           </Grid>
         ))}
           </Grid>
-          <Basket2 deleteFromBasket={handleDelete} />
+          {/* <Basket2 deleteFromBasket={handleDelete} /> */}
         <BasicModal/>
         </Container>
         </>

@@ -19,18 +19,18 @@ export const shopReducer=(state=initState,action:ShopAction):ShopState=>{
     switch(action.type){
         case ShopActionType.SET_PRODUCTS:
             return {...state,shop:action.payload}
-        case ShopActionType.ADD_TO_BASKET:
-            let addedItem  =state.shop.find(item=>action.payload===item.id)
-            let existedItem = state.basket.find(item=>action.payload===item.id)
-            if(existedItem){
+        // case ShopActionType.ADD_TO_BASKET:
+        //     let addedItem  =state.shop.find(item=>action.payload===item.id)
+        //     let existedItem = state.basket.find(item=>action.payload===item.id)
+        //     if(existedItem){
              
-                  return  {...state,counter:state.counter+1}
-            }
-            {
-                return {...state,basket:[...state.basket,addedItem],counter:state.counter+1}
+        //           return  {...state,counter:state.counter+1}
+        //     }
+        //     {
+        //         return {...state,basket:[...state.basket,addedItem],counter:state.counter+1}
              
 
-            }
+        //     }
         case ShopActionType.DELETE_FROM_BASKET:
              let newCount = state.counter-1
              return {...state,basket:[...state.basket.filter(b=>b.id!==action.payload)],counter:newCount}

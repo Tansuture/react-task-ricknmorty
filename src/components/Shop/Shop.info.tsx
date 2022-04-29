@@ -1,5 +1,8 @@
 
 import {Button, styled} from "@mui/material";
+import { FC } from "react";
+import {ShoppingData} from '../../store/types'
+import React from 'react'
 
 const Box = styled('div')`
 padding: 16px 16px 12px 16px;
@@ -26,7 +29,11 @@ const Price = styled('h3')`
   color: #19191D;
   margin-top: 12px;
 `
-const ShopInfo = ({product,addToBasket})=>{
+type Props={
+  product:ShoppingData,
+  addToBasket:(id:number)=>void
+}
+const ShopInfo:FC<Props> = ({product,addToBasket})=>{
  
 
     return(
@@ -36,7 +43,7 @@ const ShopInfo = ({product,addToBasket})=>{
             <Title>{product.title} </Title>
             <Price>{product.price}$</Price>
           
-            <Button onClick={()=>addToBasket(product,product.id )}>Add to Basket</Button>
+            {/* <Button onClick={()=>addToBasket(product.id )}>Add to Basket</Button> */}
 
         </Box>
         </>

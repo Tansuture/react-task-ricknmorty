@@ -9,5 +9,5 @@ let rootReducer = combineReducers({
     shopReducer,
  
 })
-export const store = configureStore({reducer:rootReducer,preloadedState:loadBasket()})
+export const store = configureStore({reducer:rootReducer})
 export type RootState = ReturnType<typeof rootReducer>;
